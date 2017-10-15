@@ -1,0 +1,410 @@
+:root {
+  --main-color: rgb(51,51,51);
+  --box-size: 220px;
+  --box-border-out: 16px;
+  --box-border-in: 8px;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	width: 100%;
+	font-family: 'Merriweather Sans', sans-serif;	
+	font-size: 14px;
+	color: var(--main-color);
+	box-sizing: border-box;
+	background: url(table.jpeg);
+}
+
+body  {
+	display: flex;
+	flex-direction: column;
+}
+
+h1 {
+	flex: 0 0 auto;
+	font-weight:bold; 
+	font-size: 5em;
+	padding-top: 2%; 
+	margin: auto;
+	text-align: center;
+}
+
+main {
+	flex: 1 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	padding-right: calc( (100% - (2 * (var(--box-size) + var(--box-border-in) + var(--box-border-out)))) / 2 );
+	padding-left: calc( (100% - (2 * (var(--box-size) + var(--box-border-in) + var(--box-border-out)))) / 2 );
+}
+
+[value = "0"],[value = "1"],[value = "2"],[value = "3"] {
+	flex: 0 0 var(--box-size);
+	height: var(--box-size);
+	border: solid var(--main-color);
+	align-self: center;
+}
+
+[value = "0"] {
+	align-self: flex-end;
+	border-width: var(--box-border-out) var(--box-border-in) var(--box-border-in) var(--box-border-out);
+	border-radius: 100% 0 0 0;
+	background: rgb(29,138,62);
+}
+
+/*[value = "0"]:active {
+	background: rgb(144,209,164);
+}*/
+
+[value = "1"] {
+	align-self: flex-end;
+	border-width: var(--box-border-out) var(--box-border-out) var(--box-border-in) var(--box-border-in);
+	border-radius: 0 100% 0 0;
+	background: rgb(165,0,0);
+}
+
+/*[value = "1"]:active {
+	background: rgb(242,104,104);
+}*/
+
+[value = "2"] {
+	align-self: flex-start;
+	border-width: var(--box-border-in) var(--box-border-in) var(--box-border-out) var(--box-border-out);
+	border-radius: 0 0 0 100%;
+	background: rgb(196,195,22);
+}
+
+/*[value = "2"]:active {
+	background: rgb(242,241,111);
+}*/
+
+[value = "3"] {
+	align-self: flex-start;
+	border-width: var(--box-border-in) var(--box-border-out) var(--box-border-out) var(--box-border-in);
+	border-radius: 0 0 100% 0;
+	background: rgb(0,126,171);
+}
+
+/*[value = "3"]:active {
+	background: rgb(105,186,214);
+}*/
+
+.panel {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;	
+	width: 460px;
+	height: 100px;
+	position: absolute;
+	border: solid var(--box-border-in) var(--main-color);
+	border-radius: 30px;
+	background: #D3D3D3;
+}
+
+#screen {
+	font-size: 4em;
+	text-align: center;
+	padding-top: 5px;
+	width: 101px;
+	height: 90px;
+	border: solid 4px var(--main-color);
+	border-radius: 10%;
+	background: #EEEEEE;
+	box-sizing: border-box;
+	transition: all 0.5s ease-out;
+}
+
+.screenon {
+	color: white;
+	background: var(--main-color);
+}
+
+.startarea {
+	height: 100%;	
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+button {
+	padding-top: 5px;
+	font-size: 14px;
+	font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+	border-radius: 10px;
+	width: 100px;
+	height: 35px;
+	background: var(--main-color);
+	color: white;
+	display: block;
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+button:active {
+	background: white;
+	color: var(--main-color);
+}
+
+footer {
+	flex: 0 0 auto;
+ 	width: 80%;
+	border-top: solid grey 1px;
+ 	margin: auto;
+	text-align: center;
+}
+
+footer p {
+ 	text-align: center;
+	font-size: 12px
+}
+
+/****** ON/OFF Switch CSS ******/
+.onoffswitch {
+    position: relative; width: 90px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 35px; padding: 0; line-height: 35px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: var(--main-color); color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 18px; margin: 8.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 51px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+}
+
+/****** End ON/OFF Switch CSS ******/
+
+/****** Strict Switch CSS ******/ 
+.strictswitch {
+    position: relative; width: 103px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.strictswitch-checkbox {
+    display: none;
+}
+.strictswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.strictswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.strictswitch-inner:before, .strictswitch-inner:after {
+    display: block; float: left; width: 50%; height: 43px; padding: 0; line-height: 43px;
+    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.strictswitch-inner:before {
+    content: "STRICT";
+    padding-left: 8px;
+    background-color: var(--main-color); color: #FFFFFF;
+}
+.strictswitch-inner:after {
+    content: "NORM";
+    padding-right: 8px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.strictswitch-switch {
+    display: block; width: 32px; margin: 5.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 56px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.strictswitch-checkbox:checked + .strictswitch-label .strictswitch-inner {
+    margin-left: 0;
+}
+.strictswitch-checkbox:checked + .strictswitch-label .strictswitch-switch {
+    right: 0px; 
+}
+
+/****** End Strict Switch CSS ******/
+
+
+@media screen and (max-width: 715px) {
+	:root {
+		--main-color: rgb(51,51,51);
+		--box-size: 130px;
+		--box-border-out: 12px;
+		--box-border-in: 6px;
+	}
+	
+	h1 {
+		font-size: 2em;
+	}
+
+	.panel {
+		width: 270px;
+		height: 60px;
+		border-radius: 20px;
+	}
+
+	#screen {
+		font-size: 2em;
+		text-align: center;
+		padding-top: 5px;
+		width: 65px;
+		height: 55px;
+		border: solid 4px var(--main-color);
+		border-radius: 10%;
+		background: #EEEEEE;
+		box-sizing: border-box;
+	}
+
+	button {
+		font-size: 12px;
+		width: 65px;
+		height: 25px;
+	}	
+
+	/****** ON/OFF Switch CSS ******/
+	.onoffswitch {
+	    position: relative; width: 65px;
+	    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+	}
+	.onoffswitch-checkbox {
+	    display: none;
+	}
+	.onoffswitch-label {
+	    display: block; overflow: hidden; cursor: pointer;
+	    border: 2px solid #999999; border-radius: 20px;
+	}
+	.onoffswitch-inner {
+	    display: block; width: 200%; margin-left: -100%;
+	    transition: margin 0.3s ease-in 0s;
+	}
+	.onoffswitch-inner:before, .onoffswitch-inner:after {
+	    display: block; float: left; width: 50%; height: 21px; padding: 0; line-height: 21px;
+	    font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+	    box-sizing: border-box;
+	}
+	.onoffswitch-inner:before {
+	    content: "ON";
+	    padding-left: 10px;
+	    background-color: var(--main-color); color: #FFFFFF;
+	}
+	.onoffswitch-inner:after {
+	    content: "OFF";
+	    padding-right: 10px;
+	    background-color: #EEEEEE; color: #999999;
+	    text-align: right;
+	}
+	.onoffswitch-switch {
+	    display: block; width: 23px; margin: -1px;
+	    background: #FFFFFF;
+	    position: absolute; top: 0; bottom: 0;
+	    right: 40px;
+	    border: 2px solid #999999; border-radius: 20px;
+	    transition: all 0.3s ease-in 0s; 
+	}
+	.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+	    margin-left: 0;
+	}
+	.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+	    right: 0px; 
+	}
+	/****** End ON/OFF Switch CSS ******/
+
+	/****** Strict Switch CSS ******/
+	.strictswitch {
+	    position: relative; width: 65px;
+	    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+	}
+	.strictswitch-checkbox {
+	    display: none;
+	}
+	.strictswitch-label {
+	    display: block; overflow: hidden; cursor: pointer;
+	    border: 2px solid #999999; border-radius: 20px;
+	}
+	.strictswitch-inner {
+	    display: block; width: 200%; margin-left: -100%;
+	    transition: margin 0.3s ease-in 0s;
+	}
+	.strictswitch-inner:before, .strictswitch-inner:after {
+	    display: block; float: left; width: 50%; height: 21px; padding: 0; line-height: 21px;
+	    font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+	    box-sizing: border-box;
+	}
+	.strictswitch-inner:before {
+	    content: "STRICT";
+	    padding-left: 2px;
+	    background-color: var(--main-color); color: #FFFFFF;
+	}
+	.strictswitch-inner:after {
+	    content: "NORM";
+	    padding-right: 2px;
+	    background-color: #EEEEEE; color: #999999;
+	    text-align: right;
+	}
+	.strictswitch-switch {
+	    display: block; width: 23px; margin: -1px;
+	    background: #FFFFFF;
+	    position: absolute; top: 0; bottom: 0;
+	    right: 40px;
+	    border: 2px solid #999999; border-radius: 20px;
+	    transition: all 0.3s ease-in 0s; 
+	}
+	.strictswitch-checkbox:checked + .strictswitch-label .strictswitch-inner {
+	    margin-left: 0;
+	}
+	.strictswitch-checkbox:checked + .strictswitch-label .strictswitch-switch {
+	    right: 0px; 
+	}
+	/****** End Strict Switch CSS ******/
+}
+
+@media screen and (max-width: 300px) {
+	[value = "0"],[value = "1"],[value = "2"],[value = "3"] {
+		border: solid var(--main-color);
+		border-radius: 0;
+		margin: 2%;
+	}
+	.panel {
+		position: static;
+	}
+
+}
+
+

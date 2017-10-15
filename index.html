@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>FCC Simon Game</title>
+
+    <!-- Links -->
+	<link href="style.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Merriweather+Sans" rel="stylesheet">
+</head>
+
+
+
+<body>
+
+	<audio id="s0">
+	  <source src="audio/s0.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+	<audio id="s1">
+	  <source src="audio/s1.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+	<audio id="s2">
+	  <source src="audio/s2.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+	<audio id="s3">
+	  <source src="audio/s3.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+	<audio id="slose">
+	  <source src="audio/slose.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+	<audio id="swin">
+	  <source src="audio/swin.mp3" type="audio/mpeg">
+	  Your browser does not support the audio element.
+	</audio>
+
+	<h1>FCC Simon Game</h1>
+
+	<main>
+		
+			<div value="0"></div>
+			<div value="1"></div>
+
+			<div class="panel">
+				
+				
+				<p id="screen"></p>
+
+				<div class="startarea">
+
+					<button>START</button>
+
+					<div class="onoffswitch">
+					    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="onoffswitch">
+					    <label class="onoffswitch-label" for="onoffswitch">
+					        <span class="onoffswitch-inner"></span>
+					        <span class="onoffswitch-switch"></span>
+					    </label>
+					</div>
+
+				</div>
+
+				<div class="strictswitch">
+				    <input type="checkbox" name="strictswitch" class="strictswitch-checkbox" id="strictswitch">
+				    <label class="strictswitch-label" for="strictswitch">
+				        <span class="strictswitch-inner"></span>
+				        <span class="strictswitch-switch"></span>
+				    </label>
+				</div>
+		
+			</div>
+
+			<div value="2"></div>
+			<div value="3"></div>
+
+			
+
+	</main>
+		
+	<footer>
+	        <p>Developed by Yo</p>
+	</footer>
+	
+
+</body>
+
+    <script type="text/javascript" src="script.js"></script>
+	
+</html>
+
+
